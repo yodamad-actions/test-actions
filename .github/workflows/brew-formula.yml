@@ -16,7 +16,7 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Update formula
-      uses: yodamad-actions/update-brew-formula
+      uses: yodamad-actions/update-brew-formula@latest
       with:
         file: slidesk.rb
         owner: yodamad
