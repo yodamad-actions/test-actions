@@ -1,0 +1,26 @@
+name: Test brew formula update action
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: write
+
+jobs:
+  update-formula:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Update formula
+      uses: yodamad-actions/update-brew-formula
+      with:
+        file: slidesk.rb
+        owner: yodamad
+        repo: homebrew-tools
+        version: "1.2.3"
+        field: MAC_ARM_SHA
+        sha256: "12345678900987654321"
