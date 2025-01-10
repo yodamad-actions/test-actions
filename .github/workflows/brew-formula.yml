@@ -24,3 +24,4 @@ jobs:
         version: "1.2.3"
         field: MAC_ARM_SHA
         sha256: "12345678900987654321"
+        token: ${{ secrets.GITHUB_TOKEN }}
