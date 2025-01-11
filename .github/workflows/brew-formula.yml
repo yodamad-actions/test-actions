@@ -16,12 +16,11 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Update formula
-      uses: yodamad-actions/brew-formula-update@0.1
+      uses: yodamad-actions/brew-formula-update@0.2
       with:
         file: slidesk.rb
         owner: yodamad
         repo: homebrew-tools
         version: "1.2.3"
-        field: MAC_ARM_SHA
-        sha256: "12345678900987654321"
+        fields: "{\"output_linux_amd\": \"LINUX_AMD_SHA-870d3cef428d408566df9bc2fc32353fca79ef1c79a43edded669b4fe16a072d\",\"output_linux_arm\": \"LINUX_ARM_SHA-25e610565d34f11dc8628fd6b4829d9a099688a40e6916860bd051b6aecc2afc\",\"output_mac_amd\": \"MAC_AMD_SHA-b328dc00b258eaa7aeadca0d3b4e3994f6f1ca5f1aaddc16f46faff040bf60b6\",\"output_mac_arm\": \"MAC_ARM_SHA-bd198c80cf98f591f10c03ab177b2600690863e0bb55afd1ae239c60660b86d6\"}"
         token: ${{ secrets.BREW_TOKEN }}
