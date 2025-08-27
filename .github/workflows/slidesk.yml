@@ -15,9 +15,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build & Deploy
-        id: slidesk
-        uses: yodamad-actions/slidesk@0.0.1
+      - name: Slidesk Deploy
+        uses: yodamad-actions/slidesk@0.0.2
         with:
           output-dir: public
           image-version: latest
