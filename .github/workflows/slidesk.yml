@@ -1,42 +1,27 @@
-name: Slidesk
-
+name: Deploy with Toto
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    branches: [ "main" ]
 
+## Very important
 permissions:
-  pages: write
-  id-token: write
+  contents: read
+  pages: write       # required by deploy-pages
+  id-token: write    # required by deploy-pages
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
-      - name: Build presentation
-        uses: docker://gouz/slidesk:latest
-        with: 
-          args: slidesk -s output slidesk
-
-      - name: Verify output directory exists and is not empty
-        shell: bash
-        run: |
-          set -euo pipefail
-          ls -R          
-          test -d "output"
-          test -n "$(ls -A "output")" || { echo "Output dir is empty"; exit 1; }
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Build & Deploy
+        id: slidesk
+        uses: yodamad-actions/slidesk@0.0.1
         with:
-          path: output
+          output-dir: public
+          image-version: latest
+          workdir: slidesk
 
-      - name: Deploy to GitHub Pages
-        id: deploy
-        uses: actions/deploy-pages@v4
+      - name: Show site URL
+        run: echo "Deployed at ${{ steps.toto.outputs.page_url }}"
