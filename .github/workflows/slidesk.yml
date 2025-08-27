@@ -16,7 +16,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Slidesk Deploy
-        uses: yodamad-actions/slidesk@0.0.2
+        uses: yodamad-actions/slidesk@0.0.3
         with:
           output-dir: public
           image-version: latest
