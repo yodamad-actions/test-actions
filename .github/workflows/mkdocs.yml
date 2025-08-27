@@ -1,7 +1,7 @@
-name: Deploy with Slidesk
+name: Deploy with MkDocs
 on:
   push:
-    branches: [ "slidesk" ]
+    branches: [ "mkdocs" ]
 
 ## Very important
 permissions:
@@ -15,5 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Slidesk Deploy
-        uses: yodamad-actions/slidesk@0.0.4
+      - name: MkDocs Deploy
+        uses: yodamad-actions/mkdocs@0.0.1
