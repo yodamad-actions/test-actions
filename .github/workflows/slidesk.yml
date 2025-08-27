@@ -1,7 +1,7 @@
 name: Deploy with Slidesk
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "slidesk" ]
 
 ## Very important
 permissions:
@@ -17,6 +17,3 @@ jobs:
 
       - name: Slidesk Deploy
         uses: yodamad-actions/slidesk@0.0.4
-        with:
-          output-dir: public
-          workdir: slidesk
