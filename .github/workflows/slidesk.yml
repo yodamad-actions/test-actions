@@ -24,6 +24,7 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
+          ls -R          
           test -d "slidesk/output"
           test -n "$(ls -A "slidesk/output")" || { echo "Output dir is empty"; exit 1; }
 
