@@ -25,13 +25,13 @@ jobs:
         run: |
           set -euo pipefail
           ls -R          
-          test -d "slidesk/output"
-          test -n "$(ls -A "slidesk/output")" || { echo "Output dir is empty"; exit 1; }
+          test -d "output"
+          test -n "$(ls -A "output")" || { echo "Output dir is empty"; exit 1; }
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: slidesk/output
+          path: output
 
       - name: Deploy to GitHub Pages
         id: deploy
